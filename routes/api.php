@@ -20,9 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/demo/{cp}', [CodigoPostalController::class, 'index']);
-
-
+Route::get('cp/{cp}', [CodigoPostalController::class, 'index']);
+Route::get('cp/colonia/{id}', [CodigoPostalController::class, 'colonia']);
 
 Route::get('comunidades', [CodigoPostalController::class, 'indexCommunities']);
 Route::get('comunidades/municipio/{municipio_id}', [CodigoPostalController::class, 'indexCommunities']);
