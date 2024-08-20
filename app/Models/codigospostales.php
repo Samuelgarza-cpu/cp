@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class codigospostales extends Model
 {
-    use HasFactory;
+    public $table = 'vw_communities_gpd';
 }

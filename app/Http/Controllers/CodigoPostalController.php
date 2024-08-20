@@ -12,7 +12,8 @@ class CodigoPostalController extends Controller
      */
     public function index()
     {
-        return "hola desde el cotroller";
+        $dataCP = codigospostales::all();
+        return $dataCP;
     }
 
     /**
