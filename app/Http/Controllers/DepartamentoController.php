@@ -29,6 +29,30 @@ class DepartamentoController extends Controller
     }
 
     /**
+     * Mostrar listado para un selector.
+     *
+     * @return \Illuminate\Http\Response $response
+     */
+    public function selectIndex(Response $response)
+    {
+        $response->data = ObjResponse::DefaultResponse();
+        try {
+            $list = DepartamentoView::where('active', true)
+                ->select('id as id', DB::raw("CONCAT(departamento, ' (', clave_org, ')') as label"))
+                ->orderBy('departamento', 'asc')->get();
+
+            $response->data = ObjResponse::CorrectResponse();
+            $response->data["message"] = 'peticion satisfactoria | lista de departamentos.';
+            $response->data["alert_text"] = "departamentos encontrados";
+            $response->data["result"] = $list;
+            $response->data["toast"] = false;
+        } catch (\Exception $ex) {
+            $response->data = ObjResponse::CatchResponse($ex->getMessage());
+        }
+        return response()->json($response, $response->data["status_code"]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request, Response $response)

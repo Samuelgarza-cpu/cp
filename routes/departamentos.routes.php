@@ -10,4 +10,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/', [DepartamentoController::class, 'index']);
+Route::get('/selectIndex', [DepartamentoController::class, 'selectIndex']);
 Route::get('/{id}', [DepartamentoController::class, 'show']);
