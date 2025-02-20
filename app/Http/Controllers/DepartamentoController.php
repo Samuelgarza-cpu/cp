@@ -54,7 +54,7 @@ class DepartamentoController extends Controller
     {
         try {
             $response->data = ObjResponse::DefaultResponse();
-            $departmaneto = Departamento::where('id', $id)->firstOrFail();
+            $departmaneto = DepartamentoView::where('id', $id)->firstOrFail();
             $response->data = ObjResponse::CorrectResponse();
             $response->data["message"] = 'Peticion satisfactoria | departamento encontrado.';
             $response->data["result"] = $departmaneto;
