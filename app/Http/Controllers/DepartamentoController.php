@@ -6,6 +6,7 @@ use App\Models\Departamento;
 use App\Models\DepartamentoView;
 use App\Models\ObjResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 
