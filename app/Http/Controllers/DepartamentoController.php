@@ -38,7 +38,7 @@ class DepartamentoController extends Controller
     {
         $response->data = ObjResponse::DefaultResponse();
         try {
-            $list = DepartamentoView::where('active', true)
+            $list = DepartamentoView::where('activo', true)
                 ->select('id as id', DB::raw("CONCAT(departamento, ' (', clave_org, ')') as label"))
                 ->orderBy('departamento', 'asc')->get();
 
