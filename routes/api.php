@@ -46,7 +46,13 @@ Route::prefix('gpd')->group(function () {
     Route::get('comunidades/id/{id}', [CodigoPostalController::class, 'showCommunityGPD']);
     Route::get('comunidades/perimetro/{perimeter_id}', [CodigoPostalController::class, 'communitiesGPDByPerimeter']);
 });
-
-
 Route::get('estados', [EstadosController::class, 'index']);
 Route::get('estados/{id}', [EstadosController::class, 'estadosFind']);
+
+
+Route::prefix('departamentos')->group(function () {
+    // Route::get('/', function () {
+    //     return 'Departamentos';
+    // });
+    include_once "departamentos.routes.php";
+});
