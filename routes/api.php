@@ -38,6 +38,8 @@ Route::get('perimetros/selectIndex', [CodigoPostalController::class, 'selectInde
 Route::post('perimetros/create', [CodigoPostalController::class, 'createOrUpdatePerimeter']);
 Route::post('perimetros/update/{id}', [CodigoPostalController::class, 'createOrUpdatePerimeter']);
 
+Route::get('types/selectIndex', [CodigoPostalController::class, 'selectIndexTypesCommunity']);
+
 Route::prefix('gpd')->group(function () {
     Route::get('cp/{cp}', [CodigoPostalController::class, 'indexGPD']);
     Route::get('cp/colonia/{id}', [CodigoPostalController::class, 'showCommunityGPD']);

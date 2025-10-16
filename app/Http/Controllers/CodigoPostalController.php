@@ -11,6 +11,7 @@ use App\Models\VWCommunityGPD;
 use App\Models\ObjResponse;
 use App\Models\Perimeter;
 use App\Models\Municipality;
+use App\Models\VWTypeCommunity;
 
 class CodigoPostalController extends Controller
 {
@@ -273,5 +274,25 @@ class CodigoPostalController extends Controller
             echo "Error: " . $ex->getMessage();
         }
         // return response()->json($response, $response->data["status_code"]);
+    }
+
+
+    /**
+     * Mostrar listado de Tipos de comunidad para un selector.
+     *
+     * @return \Illuminate\Http\Response $response
+     */
+    public function selectIndexTypesCommunity(Response $response)
+    {
+        $response->data = ObjResponse::DefaultResponse();
+        try {
+            $list = VWTypeCommunity::orderBy('type', 'asc')->get();
+            $response->data = ObjResponse::CorrectResponse();
+            $response->data["message"] = 'Peticion satisfactoria | Lista de perimetros';
+            $response->data["result"] = $list;
+        } catch (\Exception $ex) {
+            $response->data = ObjResponse::CatchResponse($ex->getMessage());
+        }
+        return response()->json($response, $response->data["status_code"]);
     }
 }
