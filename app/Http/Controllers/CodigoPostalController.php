@@ -286,7 +286,7 @@ class CodigoPostalController extends Controller
     {
         $response->data = ObjResponse::DefaultResponse();
         try {
-            $list = VWTypeCommunity::orderBy('type', 'asc')->get();
+            $list = VWTypeCommunity::orderBy('type')->get();
             $response->data = ObjResponse::CorrectResponse();
             $response->data["message"] = 'Peticion satisfactoria | Lista de perimetros';
             $response->data["result"] = $list;

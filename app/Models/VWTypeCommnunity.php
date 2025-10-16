@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VWTypeCommunity extends Model
 {
-    protected $connection = "mysql_communities";
+    // protected $connection = "mysql_communities";
     protected $table = 'vw_types_communities';
     public $timestamps = false;
     // protected $connection = "mysql_becas";
