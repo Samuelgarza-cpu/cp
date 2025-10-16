@@ -288,7 +288,7 @@ class CodigoPostalController extends Controller
         try {
             $list = VWTypeCommunity::orderBy('type')->get();
             $response->data = ObjResponse::CorrectResponse();
-            $response->data["message"] = 'Peticion satisfactoria | Lista de perimetros';
+            $response->data["message"] = 'Peticion satisfactoria | Lista de tipos de comunidades';
             $response->data["result"] = $list;
         } catch (\Exception $ex) {
             $response->data = ObjResponse::CatchResponse($ex->getMessage());
